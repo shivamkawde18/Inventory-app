@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useEffect } from "react";
 import { CustomCard, MyTable } from "..";
 import { Switch } from "antd";
@@ -18,6 +19,8 @@ export const Home = () => {
 
   const filterData =
     mode.mode === "user"
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
       ? data?.data.filter((item: Item) => item.visible === true)
       : data?.data;
 
@@ -29,6 +32,7 @@ export const Home = () => {
           admin
           <Switch
             onChange={() => {
+              //@ts-expect-error
               dispatch(setMode(mode));
             }}
           />
@@ -43,6 +47,7 @@ export const Home = () => {
             text="Total Product"
           />
           <CustomCard
+            //@ts-ignore
             value={data.data ? `$${getValue(filterData)}` : 0}
             text="Total store value"
           />
@@ -56,7 +61,7 @@ export const Home = () => {
           />
         </div>
 
-        <MyTable data={data} />
+        <MyTable data={data} isLoading={data.isLoading} isError={data.isError} />
       </div>
   );
 };

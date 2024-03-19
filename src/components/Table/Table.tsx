@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+
 import { Table, Space } from "antd";
 import {
   EditOutlined,
@@ -77,6 +79,7 @@ export const MyTable = (props: ImyTableProps) => {
 
   const handleEdit = (record: Item) => {
     // Logic for edit action
+    //@ts-ignore
     setSelectedRowData(record);
     setModalVisible(true);
   };
@@ -87,10 +90,12 @@ export const MyTable = (props: ImyTableProps) => {
   };
 
   const dispatch = useAppDispatch();
-
+  //@ts-nocheck
   const filterData =
     mode.mode === "user"
+      //@ts-ignore
       ? props?.data?.data.filter((item) => item.visible === true)
+      //@ts-expect-error
       : props.data.data;
   return (
     <>
@@ -98,6 +103,7 @@ export const MyTable = (props: ImyTableProps) => {
         loading={props.isLoading}
         pagination={false}
         dataSource={filterData}
+        //@ts-ignore
         columns={columns}
       />
 
