@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.user-mode {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+.inventory-data{
+    display: flex;
+    justify-content: space-between;
+}
+.inventory-icon{
+    display: flex;
+    gap: 20px;
+}
+.card{
+    width: 300px;
+}
+.modal-div{
+    display: flex;
+    justify-content: space-between;
+}
